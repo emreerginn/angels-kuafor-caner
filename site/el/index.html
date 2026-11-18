@@ -153,14 +153,16 @@
   .menu li .dots{flex:1;border-bottom:2px dotted #CDB5BE;transform:translateY(-.3rem);min-width:1rem}
   .note{font-size:.95rem;color:var(--mute);margin:2rem 0 0}
   .note a{color:var(--rose);font-weight:700}
-  a[href^="tel:"]{white-space:nowrap}
+  a[href^="tel:"]:not(.btn){white-space:nowrap}
+  .btn .tel-txt{white-space:nowrap}
+  .hero > div{min-width:0}
 
   /* ---------- Online randevu ---------- */
   .demo-flag{display:block;background:#FFF7D6;color:#4D3B00;border:1px dashed #B8962E;border-radius:.6rem;padding:.8rem 1rem;margin:0 0 1.5rem;font-size:.95rem;max-width:44rem}
   .demo-flag a{font-weight:700}
   .book{background:#fff;border-radius:1.25rem;padding:1.25rem;max-width:44rem;border:1px solid var(--line);box-shadow:var(--shadow-soft)}
-  .steps{list-style:none;margin:0 0 1.5rem;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem;counter-reset:s}
-  .steps li{counter-increment:s;font-size:.8rem;color:var(--mute);border-top:4px solid var(--line);padding-top:.4rem;line-height:1.25}
+  .steps{list-style:none;margin:0 0 1.5rem;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem;counter-reset:s}
+  .steps li{counter-increment:s;min-width:0;hyphens:auto;overflow-wrap:anywhere;font-size:.8rem;color:var(--mute);border-top:4px solid var(--line);padding-top:.4rem;line-height:1.25}
   .steps li::before{content:counter(s) ". "}
   .steps li[aria-current="step"]{color:var(--plum);font-weight:700;border-color:var(--rose)}
   .steps li.done{border-color:var(--plum)}
@@ -205,7 +207,8 @@
   .tabs{display:flex;gap:.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
   .tabs button{font:500 1rem var(--sans);min-height:2.75rem;padding:0 1.1rem;border-radius:999px;border:2px solid var(--plum);background:transparent;color:var(--plum);cursor:pointer;transition:background-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
   .tabs button[aria-selected="true"]{background:var(--plum);color:#fff}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .tile .ph{white-space:normal}
   .tile{aspect-ratio:4/5;border-radius:1rem;background:#EADBE0;border:1px dashed #C9AFB8;display:grid;place-items:center;padding:1rem;text-align:center;font-size:.85rem;color:var(--mute)}
   .tile:nth-child(3n+1){background:#E6DDE6}
   .tile.wide{grid-column:span 2;aspect-ratio:16/9}
@@ -257,7 +260,7 @@
     .menu{grid-template-columns:1fr 1fr;column-gap:4rem}
     .book{padding:2rem}
     .steps li{font-size:.9rem}
-    .grid{grid-template-columns:repeat(4,1fr)}
+    .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
     .tile.wide{grid-column:span 2;aspect-ratio:auto}
     .visit{grid-template-columns:1fr 1fr 1.2fr;align-items:start}
     .mapcard{min-height:100%}
